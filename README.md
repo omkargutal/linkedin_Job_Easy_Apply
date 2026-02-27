@@ -1,5 +1,7 @@
 # LinkedIn AI Auto Job Applier 🤖
 
+If you are a Mac User Download or clone this repository and start using `MacOS--ai-job-apply-agent`
+
 An automated LinkedIn Easy Apply bot (Python + Selenium) that searches for relevant jobs, answers application questions, customizes resumes using job details, and submits applications at scale.
 
 Contents
