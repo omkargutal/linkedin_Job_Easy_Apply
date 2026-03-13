@@ -25,13 +25,18 @@ follow_companies = False            # True or False, Note: True or False are cas
 # connect_request_message = ""       # Leave Empty to send connection request without personalized invitation (recommended to leave it empty, since you only get 10 per month without LinkedIn Premium*)
 
 # Do you want the program to run continuously until you stop it? (Beta)
-run_non_stop = False                # True or False, Note: True or False are case-sensitive
+run_non_stop = True                # True or False, Note: True or False are case-sensitive
 '''
 Note: Will be treated as False if `run_in_background = True`
 '''
 alternate_sortby = True             # True or False, Note: True or False are case-sensitive
 cycle_date_posted = True            # True or False, Note: True or False are case-sensitive
 stop_date_cycle_at_24hr = True      # True or False, Note: True or False are case-sensitive
+
+# >>>>>>>>>>> Scheduling Settings <<<<<<<<<<<
+use_scheduling = False                # Set to True to run at specific times. If True, run_non_stop logic will be replaced by schedule.
+# Times to run the bot in 24-hour format (HH:MM)
+scheduled_times = ["09:00", "11:00", "13:06", "15:00", "18:00", "22:00"] 
 
 
 

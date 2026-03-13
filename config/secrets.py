@@ -8,8 +8,8 @@ LinkedIn:   https://www.linkedin.com/in/omkar-gutal-a25935249/
 
 
 # Login Credentials for LinkedIn (Optional)
-username = "gutalomkar01@gmail.com"       # Enter your username in the quotes
-password = " "           # Enter your password in the quotes
+username = "[EMAIL_ADDRESS]"       # Enter your username in the quotes
+password =  "[PASSWORD]"          # Enter your password in the quotes
 
 
 ## Artificial Intelligence (Beta Not-Recommended)
