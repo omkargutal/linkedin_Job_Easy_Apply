@@ -6,22 +6,19 @@ LinkedIn:   https://www.linkedin.com/in/omkar-gutal-a25935249/
 
 ###################################################### APPLICATION INPUTS ######################################################
 
-
-# >>>>>>>>>>> Easy Apply Questions & Inputs <<<<<<<<<<<
-
 # >>>>>>>>>>> Easy Apply Questions & Inputs <<<<<<<<<<<
 
 # Give an relative path of your default resume to be uploaded. If file in not found, will continue using your previously uploaded resume in LinkedIn.
-default_resume_path = "all resumes/default/resume.pdf"      # (In Development)
+default_resume_path = '/Users/omkar/Desktop/Omkar Gutal.pdf'      # (In Development)
 
 # What do you want to answer for questions that ask about years of experience you have, this is different from current_experience? 
-years_of_experience = "01"          # A number in quotes Eg: "0","1","2","3","4", etc.
+years_of_experience = "1"          # A number in quotes Eg: "0","1","2","3","4", etc.
 
 # Do you need visa sponsorship now or in future?
 require_visa = "No"               # "Yes" or "No"
 
 # What is the link to your portfolio website, leave it empty as "", if you want to leave this question unanswered
-website = "https://www.linkedin.com/in/omkar-gutal-a25935249/"                        # "www.example.bio" or "" and so on....
+website = "https://github.com/omkargutal?tab=repositories"                        # "www.example.bio" or "" and so on....
 
 # Please provide the link to your LinkedIn profile.
 linkedIn = "https://www.linkedin.com/in/omkar-gutal-a25935249/"       # "https://www.linkedin.com/in/example" or "" and so on...
@@ -35,7 +32,7 @@ us_citizenship = "Non-citizen allowed to work for any employer"
 ## SOME ANNOYING QUESTIONS BY COMPANIES 🫠 ##
 
 # What to enter in your desired salary question (American and European), What is your expected CTC (South Asian and others)?, only enter in numbers as some companies only allow numbers,
-desired_salary = 550000         # 80000, 90000, 100000 or 120000 and so on... Do NOT use quotes
+desired_salary = 900000         # 80000, 90000, 100000 or 120000 and so on... Do NOT use quotes
 '''
 Note: If question has the word "lakhs" in it (Example: What is your expected CTC in lakhs), 
 then it will add '.' before last 5 digits and answer. Examples: 
@@ -47,7 +44,7 @@ And if asked in months, then it will divide by 12 and answer. Examples:
 '''
 
 # What is your current CTC? Some companies make it compulsory to be answered in numbers...
-current_ctc = 540000            # 800000, 900000, 1000000 or 1200000 and so on... Do NOT use quotes
+current_ctc = 600000            # 800000, 900000, 1000000 or 1200000 and so on... Do NOT use quotes
 '''
 Note: If question has the word "lakhs" in it (Example: What is your current CTC in lakhs), 
 then it will add '.' before last 5 digits and answer. Examples: 
@@ -75,12 +72,11 @@ then it will divide by 30 or 7 and answer respectively. Examples:
 '''
 
 # Your LinkedIn headline in quotes Eg: "Software Engineer @ Google, Masters in Computer Science", "Recent Grad Student @ MIT, Computer Science"
-linkedin_headline = "Omkar Gutal | Data Analyst | Python, SQL, Power BI | KPI-Driven Insights | AI-Powered Analytics" # "Headline" or "" to leave this question unanswered
+linkedin_headline = "AI Engineer | Data Scientist | 1.5 Years Exp | Generative AI & ML Specialist | Python, SQL, Power BI" # "Headline" or "" to leave this question unanswered
 
 # Your summary in quotes, use \n to add line breaks if using single quotes "Summary".You can skip \n if using triple quotes """Summary"""
 linkedin_summary = """
-Data Analyst skilled in Python, SQL, and Power BI, turning raw data into actionable business insights. Experienced in data cleaning, exploratory analysis, KPI design, and analytical storytelling.
-Passionate about AI-powered analytics and delivering smarter business outcomes.
+Aspiring AI Engineer & Data Scientist with 1.5 years of hands-on experience in machine learning, generative AI, and data analytics. Specialized in building RAG-based LLM applications, end-to-end ML pipelines, and KPI-driven dashboards. Proficient in Python, SQL, and Power BI. Dedicated to solving complex business problems using state-of-the-art AI technologies and automation. Passionate about innovation, scalability, and continuous learning in the evolving AI landscape.
 """
 
 '''
@@ -89,8 +85,23 @@ Note: If left empty as "", the tool will not answer the question. However, note 
 
 # Your cover letter in quotes, use \n to add line breaks if using single quotes "Cover Letter".You can skip \n if using triple quotes """Cover Letter""" (This question makes sense though)
 cover_letter = """
-Cover Letter
+Dear Hiring Team,
+
+With a background in Engineering, Data Science, and Generative AI, along with hands-on industry experience in product development, analytics, and automation, I am motivated to contribute to building scalable and intelligent solutions that address real-world business and technical challenges.
+
+I have completed advanced training in Data Science, Machine Learning, and Generative AI, where I developed end-to-end ML pipelines, RAG-based LLM applications, and agent-driven automation systems.
+
+Beyond technical expertise, I actively contribute through leadership, collaboration, and continuous learning, bringing a disciplined, ownership-driven, and innovation-focused mindset.
+
+Sincerely,
+Omkar Santosh Gutal
 """
+
+# Additional experience months if asked (e.g., if you have 1 year 6 months, years_of_experience is 1 and additional_months is 6)
+additional_months = "6"
+
+# Path to your photo if asked in application
+photo_path = "assets/My_Photo.pdf"
 ##> ------ Dheeraj Deshwal : dheeraj9811 Email:dheeraj20194@iiitd.ac.in/dheerajdeshwal9811@gmail.com - Feature ------
 
 # Your user_information_all letter in quotes, use \n to add line breaks if using single quotes "user_information_all".You can skip \n if using triple quotes """user_information_all""" (This question makes sense though)

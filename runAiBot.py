@@ -417,7 +417,27 @@ def upload_resume(modal: WebElement, resume: str) -> tuple[bool, str]:
 
 # Function to answer common questions for Easy Apply
 def answer_common_questions(label: str, answer: str) -> str:
-    if 'sponsorship' in label or 'visa' in label: answer = require_visa
+    label = label.lower()
+    if 'sponsorship' in label or 'visa' in label:
+        answer = require_visa
+    elif 'background check' in label or 'screening' in label:
+        answer = 'Yes'
+    elif 'relocate' in label or 'relocation' in label:
+        answer = 'Yes'
+    elif 'travel' in label:
+        answer = 'Yes'
+    elif 'start' in label and 'now' in label:
+        answer = 'Yes'
+    elif 'authorized' in label and ('work' in label or 'eligible' in label):
+        answer = 'Yes'
+    elif 'overtime' in label:
+        answer = 'Yes'
+    elif 'drug' in label and 'test' in label:
+        answer = 'Yes'
+    elif 'education' in label or 'degree' in label:
+        answer = 'Yes'
+    elif 'additional' in label and ('document' in label or 'attachment' in label or 'information' in label):
+        answer = 'No'
     return answer
 
 
@@ -458,9 +478,10 @@ def answer_questions(modal: WebElement, questions_list: set, work_location: str,
                     answer = gender
                 elif 'disability' in label: 
                     answer = disability_status
+                elif 'experience' in label or 'years' in label:
+                    answer = years_of_experience
                 elif 'proficiency' in label: 
                     answer = 'Professional'
-                # Add location handling
                 elif any(loc_word in label for loc_word in ['location', 'city', 'state', 'country']):
                     if 'country' in label:
                         answer = country 
@@ -470,6 +491,12 @@ def answer_questions(modal: WebElement, questions_list: set, work_location: str,
                         answer = current_city if current_city else work_location
                     else:
                         answer = work_location
+                elif 'additional' in label and 'month' in label:
+                    answer = additional_months
+                elif 'experience' in label or 'years' in label:
+                    # Specific handling for "years of experience" to avoid matching "additional months"
+                    if 'additional' not in label and 'month' not in label:
+                        answer = years_of_experience
                 else: 
                     answer = answer_common_questions(label,answer)
                 try: 
@@ -495,12 +522,19 @@ def answer_questions(modal: WebElement, questions_list: set, work_location: str,
                     foundOption = False
                     for phrase in possible_answer_phrases:
                         for option in optionsText:
-                            # Check if phrase is in option or option is in phrase (bidirectional matching)
-                            if phrase.lower() in option.lower() or option.lower() in phrase.lower():
+                            # Improved matching: if answer is numeric, look for numeric match or partial string match
+                            option_digit = ''.join(c for c in option if c.isdigit())
+                            phrase_digit = ''.join(c for c in phrase if c.isdigit())
+                            
+                            if (phrase_digit and option_digit and phrase_digit == option_digit) or \
+                               (phrase.lower().strip() == option.lower().strip()) or \
+                               (phrase.lower() in option.lower()) or \
+                               (option.lower() in phrase.lower()):
                                 select.select_by_visible_text(option)
                                 answer = option
                                 foundOption = True
                                 break
+                        if foundOption: break
                     if not foundOption:
                         # Use smart selection with AI instead of random - OPTIMIZATION
                         ai_suggested_answer = None
@@ -568,6 +602,15 @@ def answer_questions(modal: WebElement, questions_list: set, work_location: str,
                 elif 'veteran' in label or 'protected' in label: answer = veteran_status
                 elif 'disability' in label or 'handicapped' in label: 
                     answer = disability_status
+                elif 'experience' in label or 'years' in label:
+                    if 'additional' not in label and 'month' not in label:
+                        answer = years_of_experience
+                elif 'relocate' in label or 'relocation' in label:
+                    answer = 'Yes'
+                elif 'background check' in label:
+                    answer = 'Yes'
+                elif 'additional' in label and 'month' in label:
+                    answer = additional_months
                 else: answer = answer_common_questions(label,answer)
                 foundOption = try_xp(radio, f".//label[normalize-space()='{answer}']", False)
                 if foundOption: 
@@ -654,6 +697,7 @@ def answer_questions(modal: WebElement, questions_list: set, work_location: str,
                 elif 'state' in label or 'province' in label: answer = state
                 elif 'zip' in label or 'postal' in label or 'code' in label: answer = zipcode
                 elif 'country' in label: answer = country
+                elif 'additional' in label and 'month' in label: answer = additional_months
                 else: answer = answer_common_questions(label,answer)
                 ##> ------ Yang Li : MARKYangL - Feature ------
                 if answer == "":
@@ -702,7 +746,8 @@ def answer_questions(modal: WebElement, questions_list: set, work_location: str,
             prev_answer = text_area.get_attribute("value")
             if not prev_answer or overwrite_previous_answers:
                 if 'summary' in label: answer = linkedin_summary
-                elif 'cover' in label: answer = cover_letter
+                elif 'cover' in label or 'message' in label or 'hiring manager' in label: answer = cover_letter
+                elif 'additional' in label and 'information' in label: answer = "Please see my resume for more details."
                 if answer == "":
                 ##> ------ Yang Li : MARKYangL - Feature ------
                     if use_AI and aiClient:
@@ -757,6 +802,20 @@ def answer_questions(modal: WebElement, questions_list: set, work_location: str,
                     print_lg("Checkbox click failed!", e)
                     pass
             questions_list.add((f'{label} ([X] {answer})', checked, "checkbox", prev_answer))
+            continue
+
+        # Check if it's a file upload question (for photo/etc)
+        file_input = try_xp(Question, ".//input[@type='file']", False)
+        if file_input:
+            label = try_xp(Question, ".//label[@for]", False)
+            label_org = label.text if label else "Unknown"
+            label = label_org.lower()
+            if any(word in label for word in ['photo', 'photograph', 'image', 'picture', 'headshot']):
+                if os.path.exists(photo_path):
+                    file_input.send_keys(os.path.abspath(photo_path))
+                    print_lg(f"Uploaded photo for: {label_org}")
+                else:
+                    print_lg(f"Photo path {photo_path} not found. Skipping photo upload.")
             continue
 
 
