@@ -85,16 +85,50 @@ Note: If left empty as "", the tool will not answer the question. However, note 
 
 # Your cover letter in quotes, use \n to add line breaks if using single quotes "Cover Letter".You can skip \n if using triple quotes """Cover Letter""" (This question makes sense though)
 cover_letter = """
-Dear Hiring Team,
+Full Name: Omkar Santosh Gutal
+Current Location: Pune, India (Open to relocate to UAE)
+Contact Details: +91 9373831167 , gutalomkar01@gmail.com
+LinkedIn Profile: https://www.linkedin.com/in/omkar-gutal-a25935249/
+GitHub Profile: https://github.com/omkargutal?tab=repositories
 
-With a background in Engineering, Data Science, and Generative AI, along with hands-on industry experience in product development, analytics, and automation, I am motivated to contribute to building scalable and intelligent solutions that address real-world business and technical challenges.
+Professional Summary: Results-driven Data Analyst / AI Engineer with expertise in Python, SQL, Machine Learning, and Generative AI. Experienced in building data-driven solutions and automation systems. Reduced production release cycle time by 70% at Philips Healthcare using Python-based workflow optimization. Skilled in developing end-to-end ML pipelines, RAG-based LLM applications, and collaborating with global teams.
 
-I have completed advanced training in Data Science, Machine Learning, and Generative AI, where I developed end-to-end ML pipelines, RAG-based LLM applications, and agent-driven automation systems.
+Education: Bachelor of Engineering (Electronics and Telecommunication)
+Savitribai Phule Pune University, India
 
-Beyond technical expertise, I actively contribute through leadership, collaboration, and continuous learning, bringing a disciplined, ownership-driven, and innovation-focused mindset.
+Work Experience:
+Development Engineer (Product Data Owner)
+Philips Healthcare
+Managed product data for 3 major ultrasound product releases
+Reduced production release cycle time by 70% using Python automation
+Optimized workflows through data analysis and process improvement
+Collaborated with global teams for project and tool customization
+Handled translation validation and multilingual UI testing
 
-Sincerely,
-Omkar Santosh Gutal
+Data Annotator - Freelance
+XBP Global
+Accurately labeled and annotated datasets (text, images, or video) to support machine learning model training and evaluation.
+Ensured high data quality by following annotation guidelines, performing validation checks, and maintaining consistency across large datasets.
+
+Technical Skills: Python, SQL, Machine Learning, Data Analytics, Pandas, NumPy, Excel, Power BI, Scikit-learn, Generative AI, LLMs, RAG, Stakeholder Management, Leadership, Communication 
+
+Projects:
+Customer Pattern Analysis DashBoard
+• End-to-end purchasing analysis identifying revenue trends and customer segments.
+• Power BI dashboards with DAX KPIs for actionable business insights.
+• Decision-ready analytics aligned with business objectives.
+
+Customer Segmentation End-to-End
+• Developed an end-to-end unsupervised machine learning pipeline for customer segmentation using clustering algorithms.
+• Performed data preprocessing including feature scaling and transformation for optimal model performance.
+• Built and deployed an interactive Streamlit application for cluster visualization and real-time prediction
+
+Languages: English, Hindi, Arabic(learning)
+Passport: Indian Passport holder
+Availability: Immediate 
+
+Why should we hire you?
+I bring a strong combination of problem-solving ability, adaptability, and a results-driven mindset. I have experience delivering measurable outcomes, improving processes, and working effectively both independently and within teams. I am quick to learn new tools and technologies, detail-oriented in execution, and committed to continuous improvement. My ability to understand requirements, take ownership, and contribute positively in fast-paced environments allows me to add value across different roles and responsibilities.
 """
 
 # Additional experience months if asked (e.g., if you have 1 year 6 months, years_of_experience is 1 and additional_months is 6)
@@ -106,8 +140,9 @@ photo_path = "assets/My_Photo.pdf"
 
 # Your user_information_all letter in quotes, use \n to add line breaks if using single quotes "user_information_all".You can skip \n if using triple quotes """user_information_all""" (This question makes sense though)
 # We use this to pass to AI to generate answer from information , Assuing Information contians eg: resume  all the information like name, experience, skills, Country, any illness etc. 
-user_information_all ="""
-User Information
+user_information_all = f"""
+User Information:
+{cover_letter}
 """
 ##<
 '''
@@ -115,10 +150,10 @@ Note: If left empty as "", the tool will not answer the question. However, note 
 ''' 
 
 # Name of your most recent employer
-recent_employer = "Not Applicable" # "", "Lala Company", "Google", "Snowflake", "Databricks"
+recent_employer = "Philips" # "", "Lala Company", "Google", "Snowflake", "Databricks"
 
 # Example question: "On a scale of 1-10 how much experience do you have building web or mobile applications? 1 being very little or only in school, 10 being that you have built and launched applications to real users"
-confidence_level = "8"             # Any number between "1" to "10" including 1 and 10, put it in quotes ""
+confidence_level = "10"             # Any number between "1" to "10" including 1 and 10, put it in quotes ""
 ##
 
 
