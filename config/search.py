@@ -9,12 +9,10 @@ LinkedIn:   https://www.linkedin.com/in/omkar-gutal-a25935249/
 # These Sentences are Searched in LinkedIn
 # Enter your search terms inside '[ ]' with quotes ' "searching title" ' for each search followed by comma ', ' Eg: ["Software Engineer", "Software Developer", "Selenium Developer"]
 search_terms = [
-    "AI Engineer", "Artificial Intelligence Engineer", "Generative AI Engineer", "GenAI Engineer", "LLM Engineer", 
-    "AI Developer", "AI Research Engineer", "AI Solutions Architect",
-    "Machine Learning Engineer", "ML Engineer", "MLOps Engineer", "Machine Learning Infrastructure Engineer", 
-    "Deep Learning Engineer", "Computer Vision Engineer", "NLP Engineer", "ML Researcher",
-    "Data Scientist", "Applied Scientist", "Data Science Engineer", "Data Science Specialist", 
-    "Lead Data Scientist", "Senior Data Scientist"
+    "AI Engineer", "Generative AI Engineer", "GenAI Engineer", "LLM Engineer",
+    "AI Developer",
+    "Machine Learning Engineer", "ML Engineer",
+    "Data Scientist", "Data Analyst"
 ]
 
 # Search location, this will be filled in "City, state, or zip code" search box. If left empty as "", tool will not fill it.
